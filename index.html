@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AjoChain — The bank is the code.</title>
+<style>
+body{font-family:sans-serif;background:#FFFEF8;color:#0A0A0A;margin:0}
+header{display:flex;justify-content:space-between;padding:20px;border-bottom:2px solid #111}
+.kolo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#FF006A,#FFD60A);display:grid;place-items:center}
+.hero{padding:40px 24px}
+.hero h1{font-size:56px;line-height:.9}
+.tvl{background:#111;color:#fff;border-radius:20px;padding:18px;margin:24px 0}
+.btn{padding:16px 24px;border-radius:999px;border:0;font-weight:800;background:#FF006A;color:#fff;width:100%}
+.view{display:none;min-height:100vh;padding-bottom:80px}
+.view.active{display:block}
+.bottom{position:fixed;bottom:0;left:0;right:0;display:flex;border-top:2px solid #111;background:#fff}
+.bottom button{flex:1;padding:16px;border:0;background:none;font-weight:800}
+</style>
+</head>
+<body>
+<div id="landing" class="view active">
+<header><div><span class="kolo">◍</span> AjoChain</div><button onclick="show('signup')">Connect</button></header>
+<div class="hero"><h1>The bank is the code.</h1><p>Decentralized Esusu. No chairman. No runaway.</p>
+<div class="tvl"><b>₦12.4M+ locked • 1,240 pools</b><div style="height:6px;background:#333;border-radius:99px;margin-top:8px"><div style="width:87%;height:100%;background:linear-gradient(90deg,#FF006A,#FFD60A)"></div></div></div>
+<button class="btn" onclick="show('signup')">Start a Pool →</button>
+</div></div>
+
+<div id="signup" class="view" style="background:#0A0A0A;color:#fff">
+<header style="border-color:#222"><div>AjoChain</div><span>Wallet-only</span></header>
+<div style="padding:24px"><h2>Connect to start saving</h2><p>No phone, no email. Wallet = ID.</p>
+<button class="btn" style="background:#171717;border:2px solid #333" onclick="connect()">🦊 MetaMask</button>
+<div style="margin:12px 0"><button onclick="pick(this)" style="padding:10px 18px;border-radius:999px">₦50k</button> <button style="background:#FF006A;color:#fff;padding:10px 18px;border-radius:999px">₦250k</button></div>
+<button class="btn" onclick="show('dashboard')">Create Vault →</button></div></div>
+
+<div id="dashboard" class="view" style="background:#0E1228;color:#fff">
+<div style="padding:24px"><h2>Esusu Pool #12 • ₦500k Pool</h2><p>5 members • 3/5 paid</p>
+<div style="width:120px;height:120px;border-radius:50%;background:conic-gradient(#FF006A 60%,#222 0);margin:20px auto;display:grid;place-items:center"><div style="width:90px;height:90px;background:#0E1228;border-radius:50%;display:grid;place-items:center">60%<br>12d 04h</div></div>
+<button class="btn" onclick="this.innerHTML='Paid ✓'">Contribute ₦100k</button>
+</div></div>
+
+<div class="bottom"><button onclick="show('landing')">Landing</button><button onclick="show('signup')">Sign Up</button><button onclick="show('dashboard')">Dashboard</button></div>
+
+<script>
+function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active')}
+function connect(){alert('Wallet 0x7F...A9D2 connected');show('dashboard')}
+function pick(el){document.querySelectorAll('button').forEach(b=>b.style.background='');}
+</script>
+</body>
+</html>
